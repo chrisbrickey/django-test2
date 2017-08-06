@@ -19,8 +19,11 @@ class Kitten(models.Model):
     owner = models.ForeignKey(User, on_delete=models.CASCADE)
     
 
-
-
     timestamp_last_edited = models.DateField(auto_now=True, auto_now_add=False)
     timestamp_created = models.DateField(auto_now=False, auto_now_add=True)
+
+    #tells Django which field to use as display on the Django admin (analgous to console but on the browser)
+    def __str__(self):
+        return self.name
+
 
