@@ -12,6 +12,10 @@ https://docs.djangoproject.com/en/1.11/ref/settings/
 
 import os
 
+# DB_NAME = os.environ.get('DB_NAME', None)
+# DB_USER = os.environ.get('DB_USER', None)
+# DB_PASS = os.environ.get('DB_PASS', None)
+
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -37,6 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'app_test2.apps.AppTest2Config'
 ]
 
 MIDDLEWARE = [
@@ -73,10 +78,16 @@ WSGI_APPLICATION = 'django_test2.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/1.11/ref/settings/#databases
 
+#NAME, USER, PASSWORD are specific to instance of database - update this for local machines and production server
+
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'quickfit_dev',
+        'USER': 'chrisbrickey',
+        'PASSWORD': '',
+        'HOST': 'localhost',
+        'PORT': '',
     }
 }
 
